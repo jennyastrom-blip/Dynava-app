@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynava Perks — Presentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg-deep:#09111e;
+  --bg-mid:#0e1726;
+  --bg-card:#131f30;
+  --bg-card2:#1a2740;
+  --accent:#14b8a6;
+  --accent-dim:rgba(20,184,166,0.15);
+  --accent-glow:rgba(20,184,166,0.3);
+  --text-white:#ffffff;
+  --text-muted:#64748b;
+  --text-secondary:#94a3b8;
+  --border:rgba(255,255,255,0.06);
+  --border-accent:rgba(20,184,166,0.3);
+  --font-head:'Poppins',sans-serif;
+  --font-body:'Inter',sans-serif;
+}
+html,body{height:100%;overflow:hidden;background:var(--bg-deep)}
+body{display:flex;align-items:center;justify-content:center;font-family:var(--font-body)}
+
+/* ── MOBILE: hide presentation shell, show app fullscreen ── */
+@media(max-width:700px){
+  body{overflow:auto}
+  .left-panel{display:none!important}
+  .right-panel{padding:0!important;width:100vw!important;height:100vh!important;display:block!important}
+  .pres{display:block!important;width:100vw!important;height:100vh!important}
+  .phone-frame{
+    width:100vw!important;height:100vh!important;
+    border-radius:0!important;
+    border:none!important;
+    box-shadow:none!important;
+    transform:none!important;
+  }
+  .phone-frame::before,.phone-frame::after{display:none!important}
+  .app-screen{border-radius:0!important}
+  .screen{border-radius:0!important}
+  .topbar{padding-top:52px!important}
+  .subscreen-topbar{padding-top:52px!important}
+  .offer-topbar{padding-top:52px!important}
+  #screen-a{padding-top:80px!important}
+}
+
+/* ── PRESENTATION WRAPPER ── */
+.pres{
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:0;
+  width:100vw;
+  height:100vh;
+  max-height:100vh;
+  overflow:hidden;
+  position:relative;
+}
+
+/* Subtle grid background */
+.pres::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(20,184,166,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(20,184,166,0.03) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+}
+
+/* ── LEFT PANEL ── */
+.left-panel{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:4vw 5vw;
+  position:relative;
+  z-index:1;
+}
+.left-panel .brand-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--accent-dim);
+  border:1px solid var(--border-accent);
+  border-radius:100px;
+  padding:6px 16px;
+  margin-bottom:2.5rem;
+  width:fit-content;
+}
+.brand-badge span{font-family:var(--font-head);font-size:12px;font-weight:600;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase}
+.brand-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(0.8)}}
+
+.left-panel h1{
+  font-family:var(--font-head);
+  font-size:clamp(1.6rem,2.5vw,2.8rem);
+  font-weight:700;
+  color:var(--text-white);
+  line-height:1.2;
+  margin-bottom:0.5rem;
+}
+.left-panel h1 span{color:var(--accent)}
+.left-panel .subtitle{
+  font-size:clamp(0.85rem,1.1vw,1rem);
+  color:var(--text-muted);
+  margin-bottom:3rem;
+  line-height:1.7;
+}
+.arch-title{
+  font-family:var(--font-head);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:1.5rem;
+}
+.feature-list{display:flex;flex-direction:column;gap:1.25rem}
+.feature-item{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  padding:1.25rem 1.5rem;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  transition:border-color .3s,background .3s;
+}
+.feature-item:hover{border-color:var(--border-accent);background:var(--bg-card2)}
+.fi-icon{
+  width:42px;height:42px;
+  border-radius:12px;
+  background:var(--accent-dim);
+  border:1px solid var(--border-accent);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  color:var(--accent);
+  font-size:16px;
+}
+.fi-body h3{
+  font-family:var(--font-head);
+  font-size:13px;
+  font-weight:600;
+  color:var(--text-white);
+  margin-bottom:4px;
+}
+.fi-body p{font-size:12px;color:var(--text-muted);line-height:1.6}
+
+.left-panel .footer-note{
+  margin-top:2.5rem;
+  font-size:11px;
+  color:var(--text-muted);
+  display:flex;align-items:center;gap:8px;
+}
+.footer-note::before{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── RIGHT PANEL ── */
+.right-panel{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px 30px 20px 0;
+  position:relative;
+  z-index:1;
+}
+
+/* ── PHONE FRAME ── */
+.phone-frame{
+  width:340px;
+  height:680px;
+  background:#0a0f1a;
+  border-radius:52px;
+  border:2px solid rgba(255,255,255,0.12);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.8),
+    0 40px 80px rgba(0,0,0,0.7),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
+}
+/* Scale phone if viewport is short */
+@media(max-height:760px){.phone-frame{transform:scale(0.88);transform-origin:center center}}
+@media(max-height:680px){.phone-frame{transform:scale(0.78)}}
+@media(max-height:600px){.phone-frame{transform:scale(0.68)}}
+
+/* Notch */
+.phone-frame::before{
+  content:'';
+  position:absolute;
+  top:0;left:50%;transform:translateX(-50%);
+  width:120px;height:30px;
+  background:#0a0f1a;
+  border-radius:0 0 20px 20px;
+  z-index:100;
+}
+/* Side buttons */
+.phone-frame::after{
+  content:'';
+  position:absolute;
+  right:-3px;top:140px;
+  width:3px;height:80px;
+  background:rgba(255,255,255,0.1);
+  border-radius:0 2px 2px 0;
+}
+
+/* ── APP SCREEN ── */
+.app-screen{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  border-radius:50px;
+}
+
+/* ── SCREENS ── */
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(160deg,#0d1825 0%,#091018 100%);
+  transition:opacity .35s ease,transform .35s ease;
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(30px);
+  overflow:hidden;
+}
+.screen.active{opacity:1;pointer-events:all;transform:translateX(0)}
+.screen.exit-left{opacity:0;transform:translateX(-30px)}
+
+/* ── SCREEN A: LOGIN ── */
+#screen-a{justify-content:center;padding:40px 28px 32px}
+.logo-block{text-align:center;margin-bottom:36px}
+.logo-icon{
+  width:64px;height:64px;border-radius:20px;
+  background:linear-gradient(135deg,var(--accent),#0d9488);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;
+  box-shadow:0 8px 24px rgba(20,184,166,0.35);
+}
+.logo-icon i{font-size:28px;color:#fff}
+.logo-name{font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--text-white)}
+.logo-name span{color:var(--accent)}
+.logo-tagline{font-size:11px;color:var(--text-muted);letter-spacing:0.05em;margin-top:2px}
+.login-desc{
+  font-size:13px;color:var(--text-secondary);
+  text-align:center;line-height:1.7;margin-bottom:28px;
+}
+.login-label{font-size:11px;font-weight:600;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;display:block}
+.login-input{
+  width:100%;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;
+  padding:13px 16px;
+  color:var(--text-white);
+  font-family:var(--font-body);
+  font-size:13px;
+  outline:none;
+  transition:border-color .2s,box-shadow .2s;
+  margin-bottom:6px;
+}
+.login-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(20,184,166,0.15)}
+.login-input::placeholder{color:var(--text-muted)}
+.login-error{font-size:11px;color:#f87171;margin-bottom:14px;min-height:16px;padding-left:4px}
+.btn-login{
+  width:100%;
+  padding:14px;
+  background:var(--accent);
+  border:none;border-radius:12px;
+  color:#fff;
+  font-family:var(--font-head);
+  font-size:14px;font-weight:600;
+  cursor:pointer;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 4px 16px rgba(20,184,166,0.4);
+  margin-top:8px;
+}
+.btn-login:hover{background:#0d9488;box-shadow:0 6px 20px rgba(20,184,166,0.5)}
+.btn-login:active{transform:scale(0.98)}
+.login-footer{text-align:center;margin-top:24px;font-size:11px;color:var(--text-muted)}
+.login-footer a{color:var(--accent);text-decoration:none}
+
+/* ── SCREEN B: HOME ── */
+#screen-b{padding:0}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:38px 20px 12px;
+  flex-shrink:0;
+}
+.topbar-logo{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--text-white)}
+.topbar-logo span{color:var(--accent)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.topbar-icon{
+  width:34px;height:34px;border-radius:10px;
+  background:rgba(255,255,255,0.06);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--text-secondary);font-size:15px;
+  transition:background .2s,color .2s;
+  position:relative;
+}
+.topbar-icon:hover{background:rgba(255,255,255,0.1);color:var(--text-white)}
+.notif-dot{
+  position:absolute;top:6px;right:6px;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);border:1px solid var(--bg-deep);
+}
+.avatar{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),#0d9488);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-family:var(--font-head);font-size:13px;
+  font-weight:700;color:#fff;flex-shrink:0;
+  border:2px solid rgba(20,184,166,0.4);
+  transition:transform .2s,box-shadow .2s;
+}
+.avatar:hover{transform:scale(1.08);box-shadow:0 4px 12px rgba(20,184,166,0.4)}
+
+.home-scroll{flex:1;overflow-y:auto;padding:4px 20px 20px;scrollbar-width:none}
+.home-scroll::-webkit-scrollbar{display:none}
+
+.welcome-section{margin-bottom:20px}
+.welcome-greeting{
+  font-family:var(--font-head);font-size:20px;font-weight:700;
+  color:var(--text-white);line-height:1.3;margin-bottom:4px;
+}
+.welcome-greeting span{color:var(--accent)}
+.welcome-sub{font-size:12px;color:var(--text-muted)}
+
+.stats-bar{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;
+}
+.stat-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:14px;
+  padding:12px 14px;
+}
+.stat-label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.stat-val{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--accent)}
+.stat-sub{font-size:10px;color:var(--text-secondary)}
+
+.section-label{
+  font-size:11px;font-weight:600;color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.1em;
+  margin-bottom:12px;
+}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cat-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);border-radius:16px;
+  padding:16px 14px;cursor:pointer;
+  transition:border-color .25s,background .25s,transform .2s;
+  display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+}
+.cat-card:hover{border-color:var(--border-accent);background:var(--bg-card2);transform:translateY(-2px)}
+.cat-card:active{transform:scale(0.97)}
+.cat-icon{
+  width:40px;height:40px;border-radius:12px;
+  background:var(--accent-dim);border:1px solid var(--border-accent);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);font-size:17px;
+}
+.cat-name{font-family:var(--font-head);font-size:12px;font-weight:600;color:var(--text-white)}
+.cat-count{font-size:10px;color:var(--text-muted)}
+.cat-btn{
+  width:100%;padding:7px 0;
+  background:var(--accent-dim);border:1px solid var(--border-accent);
+  border-radius:8px;color:var(--accent);
+  font-family:var(--font-head);font-size:10px;font-weight:600;
+  cursor:pointer;transition:background .2s;
+  text-align:center;
+}
+.cat-card:hover .cat-btn{background:rgba(20,184,166,0.25)}
+
+/* ── PROFILE OVERLAY ── */
+.profile-overlay{
+  position:absolute;inset:0;
+  background:rgba(9,17,30,0.7);
+  backdrop-filter:blur(6px);
+  z-index:50;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.profile-overlay.open{opacity:1;pointer-events:all}
+.profile-sheet{
+  position:absolute;bottom:0;left:0;right:0;
+  background:#111d2e;
+  border-radius:24px 24px 0 0;
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:20px 24px 36px;
+  transform:translateY(100%);
+  transition:transform .35s cubic-bezier(0.34,1.56,0.64,1);
+}
+.profile-overlay.open .profile-sheet{transform:translateY(0)}
+.sheet-handle{width:40px;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;margin:0 auto 20px}
+.profile-head{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.profile-ava{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),#0d9488);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-size:20px;font-weight:700;color:#fff;
+  border:2px solid rgba(20,184,166,0.5);
+}
+.profile-name{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--text-white)}
+.profile-role{font-size:12px;color:var(--accent)}
+.profile-rows{display:flex;flex-direction:column;gap:2px;margin-bottom:20px}
+.profile-row{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 12px;border-radius:10px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid transparent;
+}
+.profile-row:hover{border-color:var(--border);background:rgba(255,255,255,0.05)}
+.pr-icon{width:28px;text-align:center;color:var(--accent);font-size:13px}
+.pr-label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em}
+.pr-val{font-size:12px;color:var(--text-white);margin-top:1px}
+.btn-signout{
+  width:100%;padding:12px;border:1px solid rgba(248,113,113,0.3);border-radius:12px;
+  background:rgba(248,113,113,0.08);color:#f87171;
+  font-family:var(--font-head);font-size:13px;font-weight:600;cursor:pointer;
+  transition:background .2s;
+}
+.btn-signout:hover{background:rgba(248,113,113,0.15)}
+
+/* ── SCREEN C: COMPANY LIST ── */
+#screen-c{padding:0}
+.subscreen-topbar{
+  display:flex;align-items:center;gap:12px;
+  padding:38px 20px 16px;flex-shrink:0;
+}
+.back-btn{
+  width:32px;height:32px;border-radius:10px;
+  background:rgba(255,255,255,0.06);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--text-secondary);font-size:14px;
+  transition:background .2s,color .2s;flex-shrink:0;
+}
+.back-btn:hover{background:rgba(255,255,255,0.1);color:var(--text-white)}
+.subscreen-title{
+  font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--text-white);
+  flex:1;
+}
+.company-scroll{flex:1;overflow-y:auto;padding:4px 16px 20px;scrollbar-width:none}
+.company-scroll::-webkit-scrollbar{display:none}
+.company-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.company-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+  padding:14px 12px;cursor:pointer;
+  transition:border-color .25s,background .25s,transform .2s;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  text-align:center;
+  position:relative;
+}
+.company-card:hover{border-color:var(--border-accent);background:var(--bg-card2);transform:translateY(-2px)}
+.company-card:active{transform:scale(0.97)}
+.company-logo{
+  width:48px;height:48px;border-radius:14px;
+  background:linear-gradient(135deg,var(--bg-card2),rgba(20,184,166,0.1));
+  border:1px solid var(--border-accent);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);font-size:20px;
+}
+.company-name{
+  font-family:var(--font-head);font-size:10px;font-weight:600;
+  color:var(--text-white);line-height:1.3;
+}
+.discount-badge{
+  background:var(--accent);color:#fff;
+  font-family:var(--font-head);font-size:9px;font-weight:700;
+  padding:3px 8px;border-radius:100px;
+  letter-spacing:.04em;
+  max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.discount-badge.pending{background:rgba(100,116,139,0.3);color:var(--text-muted);border:1px solid var(--border)}
+.company-cta{
+  width:100%;padding:7px 0;
+  background:var(--accent-dim);border:1px solid var(--border-accent);
+  border-radius:8px;color:var(--accent);
+  font-family:var(--font-head);font-size:9px;font-weight:600;
+  cursor:pointer;transition:background .2s;
+}
+.company-card:hover .company-cta{background:rgba(20,184,166,0.25)}
+.company-card.pending-card{opacity:0.6;cursor:default}
+.company-card.pending-card:hover{transform:none;border-color:var(--border);background:var(--bg-card)}
+
+/* Full-width single column card */
+.company-card.full-width{grid-column:1/-1;flex-direction:row;text-align:left;align-items:center;gap:14px}
+.company-card.full-width .company-name{flex:1;font-size:12px}
+
+/* ── SCREEN D: OFFER ── */
+#screen-d{padding:0}
+.offer-topbar{
+  display:flex;align-items:center;gap:12px;
+  padding:38px 20px 12px;flex-shrink:0;
+}
+.offer-scroll{flex:1;overflow-y:auto;padding:4px 20px 24px;scrollbar-width:none}
+.offer-scroll::-webkit-scrollbar{display:none}
+
+.offer-hero{text-align:center;margin-bottom:20px}
+.offer-logo{
+  width:64px;height:64px;border-radius:20px;
+  background:linear-gradient(135deg,var(--bg-card2),rgba(20,184,166,0.15));
+  border:1px solid var(--border-accent);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);font-size:26px;
+  margin:0 auto 12px;
+}
+.offer-company{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--text-white);margin-bottom:4px}
+.offer-cat{font-size:11px;color:var(--text-muted)}
+
+.offer-box{
+  background:linear-gradient(135deg,rgba(20,184,166,0.12),rgba(20,184,166,0.05));
+  border:1px solid var(--border-accent);border-radius:16px;
+  padding:16px;text-align:center;margin-bottom:16px;
+}
+.offer-discount{font-family:var(--font-head);font-size:28px;font-weight:700;color:var(--accent);margin-bottom:6px}
+.offer-conditions{font-size:11px;color:var(--text-secondary);line-height:1.6}
+
+.qr-section{margin-bottom:16px}
+.section-title{font-family:var(--font-head);font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.qr-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+  padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.qr-code{
+  width:120px;height:120px;
+  background:#fff;border-radius:8px;
+  padding:8px;display:flex;align-items:center;justify-content:center;
+}
+.qr-code svg{width:104px;height:104px}
+.qr-hint{font-size:11px;color:var(--text-muted);text-align:center;line-height:1.6}
+
+.map-section{margin-bottom:8px}
+.map-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+  overflow:hidden;
+}
+.map-placeholder{
+  width:100%;height:130px;
+  background:linear-gradient(135deg,#0d1a2a,#0a1520);
+  position:relative;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.map-grid-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(20,184,166,0.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(20,184,166,0.06) 1px,transparent 1px);
+  background-size:20px 20px;
+}
+.map-roads{position:absolute;inset:0}
+.map-info{padding:12px 14px}
+.map-address{font-size:12px;color:var(--text-white);font-weight:500;margin-bottom:4px}
+.map-distance-row{display:flex;align-items:center;gap:8px}
+.map-dist-badge{
+  background:var(--accent-dim);border:1px solid var(--border-accent);
+  border-radius:100px;padding:3px 10px;
+  font-size:10px;font-weight:600;color:var(--accent);
+}
+.map-open-btn{
+  margin-left:auto;
+  background:transparent;border:1px solid var(--border);border-radius:8px;
+  padding:4px 10px;color:var(--text-muted);font-size:10px;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.map-open-btn:hover{border-color:var(--border-accent);color:var(--accent)}
+
+/* Map pin */
+.map-pin{
+  position:absolute;
+  display:flex;flex-direction:column;align-items:center;
+  z-index:5;
+  animation:pin-drop 0.5s ease 0.3s both;
+}
+@keyframes pin-drop{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+.map-pin-dot{
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,#ef4444,#dc2626);
+  border:2px solid #fff;
+  box-shadow:0 2px 8px rgba(239,68,68,0.5);
+}
+.map-pin-stem{width:2px;height:10px;background:#ef4444}
+.map-pin-shadow{
+  width:8px;height:4px;border-radius:50%;
+  background:rgba(0,0,0,0.4);
+  margin-top:1px;
+}
+/* Road SVG lines */
+</style>
+</head>
+<body>
+
+<div class="pres">
+  <!-- ── LEFT PANEL ── -->
+  <div class="left-panel">
+    <div class="brand-badge">
+      <div class="dot"></div>
+      <span>Dynava Perks — Employee Benefits</span>
+    </div>
+    <h1>Mobile UI<br><span>Architecture</span></h1>
+    <p class="subtitle">En fullt interaktiv prototyp för personalförmåner<br>anpassad för anställda i Larnaca, Cypern.</p>
+
+    <div class="arch-title">Teknisk arkitektur</div>
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="fi-icon"><i class="fa-solid fa-fingerprint"></i></div>
+        <div class="fi-body">
+          <h3>Interactive Auth & State</h3>
+          <p>Visar inloggningsflödet med automatisk namnextraktion från jobb-mailadressen — JavaScript parsear och formaterar förnamnet dynamiskt vid inloggning.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <div class="fi-body">
+          <h3>Dynamic View Management</h3>
+          <p>Fullt klickbara underkategorier med Dynavas faktiska samarbetspartners i Larnaca — datadriven rendering via JavaScript state-management.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
+        <div class="fi-body">
+          <h3>Live Validation & GPS</h3>
+          <p>Slutvyer med verifierande QR-koder och integrerade kartpositioner för varje partners exakta adress i Larnaca med avståndsmätning.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-note">Dynava Perks © 2025 — Larnaca Employee Benefits Platform</div>
+  </div>
+
+  <!-- ── RIGHT PANEL ── -->
+  <div class="right-panel">
+    <div class="phone-frame">
+      <div class="app-screen">
+
+        <!-- ════ SCREEN A: LOGIN ════ -->
+        <div class="screen active" id="screen-a">
+          <div class="logo-block">
+            <div class="logo-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="logo-name">Dynava <span>Perks</span></div>
+            <div class="logo-tagline">Employee Benefits Platform</div>
+          </div>
+          <p class="login-desc">Logga in med din jobb-mail för att ta del av dina lokala förmåner i Larnaca.</p>
+          <label class="login-label" for="email-input">E-postadress</label>
+          <input class="login-input" id="email-input" type="email" placeholder="namn.efternamn@dynava.com" autocomplete="off">
+          <div class="login-error" id="login-error"></div>
+          <button class="btn-login" id="btn-login">
+            <i class="fa-solid fa-arrow-right-to-bracket" style="margin-right:8px"></i>Logga in
+          </button>
+          <p class="login-footer">Har du problem? <a href="#">Kontakta HR</a></p>
+        </div>
+
+        <!-- ════ SCREEN B: HOME ════ -->
+        <div class="screen" id="screen-b">
+          <div class="topbar">
+            <div class="topbar-logo">Dynava <span>Perks</span></div>
+            <div class="topbar-right">
+              <div class="topbar-icon" title="Notiser">
+                <i class="fa-regular fa-bell"></i>
+                <div class="notif-dot"></div>
+              </div>
+              <div class="avatar" id="avatar-btn" title="Profil"></div>
+            </div>
+          </div>
+          <div class="home-scroll">
+            <div class="welcome-section">
+              <div class="welcome-greeting">Välkommen, <span id="welcome-name">Jenny</span>!</div>
+              <div class="welcome-sub">Exklusiva personalerbjudanden i Larnaca</div>
+            </div>
+            <div class="stats-bar">
+              <div class="stat-card">
+                <div class="stat-label">Aktiva erbjudanden</div>
+                <div class="stat-val">18</div>
+                <div class="stat-sub">partners i Larnaca</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Kategorier</div>
+                <div class="stat-val">6</div>
+                <div class="stat-sub">tillgängliga</div>
+              </div>
+            </div>
+            <div class="section-label">Kategorier</div>
+            <div class="cat-grid">
+              <div class="cat-card" data-cat="gym">
+                <div class="cat-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                <div class="cat-name">Gym & Hälsa</div>
+                <div class="cat-count">1 partner</div>
+                <button class="cat-btn">Ta del av erbjudanden</button>
+              </div>
+              <div class="cat-card" data-cat="apotek">
+                <div class="cat-icon"><i class="fa-solid fa-pills"></i></div>
+                <div class="cat-name">Apotek</div>
+                <div class="cat-count">2 partners</div>
+                <button class="cat-btn">Ta del av erbjudanden</button>
+              </div>
+              <div class="cat-card" data-cat="restauranger">
+                <div class="cat-icon"><i class="fa-solid fa-utensils"></i></div>
+                <div class="cat-name">Restauranger</div>
+                <div class="cat-count">8 partners</div>
+                <button class="cat-btn">Ta del av erbjudanden</button>
+              </div>
+              <div class="cat-card" data-cat="skonhet">
+                <div class="cat-icon"><i class="fa-solid fa-scissors"></i></div>
+                <div class="cat-name">Skönhet</div>
+                <div class="cat-count">3 partners</div>
+                <button class="cat-btn">Ta del av erbjudanden</button>
+              </div>
+              <div class="cat-card" data-cat="caféer">
+                <div class="cat-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                <div class="cat-name">Caféer & Bars</div>
+                <div class="cat-count">4 partners</div>
+                <button class="cat-btn">Ta del av erbjudanden</button>
+              </div>
+              <div class="cat-card" data-cat="ovrigt">
+                <div class="cat-icon"><i class="fa-solid fa-gear"></i></div>
+                <div class="cat-name">Övrigt</div>
+                <div class="cat-count">1 partner</div>
+                <button class="cat-btn">Ta del av erbjudanden</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROFILE OVERLAY -->
+          <div class="profile-overlay" id="profile-overlay">
+            <div class="profile-sheet">
+              <div class="sheet-handle"></div>
+              <div class="profile-head">
+                <div class="profile-ava" id="profile-ava-initials"></div>
+                <div>
+                  <div class="profile-name" id="profile-full-name">Jenny Åström</div>
+                  <div class="profile-role">Dynava Employee — Larnaca</div>
+                </div>
+              </div>
+              <div class="profile-rows">
+                <div class="profile-row">
+                  <div class="pr-icon"><i class="fa-solid fa-envelope"></i></div>
+                  <div>
+                    <div class="pr-label">E-post</div>
+                    <div class="pr-val" id="profile-email-display">jenny.astrom@dynava.com</div>
+                  </div>
+                </div>
+                <div class="profile-row">
+                  <div class="pr-icon"><i class="fa-solid fa-phone"></i></div>
+                  <div>
+                    <div class="pr-label">Telefon</div>
+                    <div class="pr-val">+357 99 XX XX XX</div>
+                  </div>
+                </div>
+                <div class="profile-row">
+                  <div class="pr-icon"><i class="fa-solid fa-id-badge"></i></div>
+                  <div>
+                    <div class="pr-label">Anställningsnr</div>
+                    <div class="pr-val">454530</div>
+                  </div>
+                </div>
+                <div class="profile-row">
+                  <div class="pr-icon"><i class="fa-solid fa-location-dot"></i></div>
+                  <div>
+                    <div class="pr-label">Kontor</div>
+                    <div class="pr-val">Larnaca, Cypern</div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-signout" id="btn-signout"><i class="fa-solid fa-arrow-right-from-bracket" style="margin-right:8px"></i>Logga ut</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ════ SCREEN C: COMPANY LIST ════ -->
+        <div class="screen" id="screen-c">
+          <div class="subscreen-topbar">
+            <div class="back-btn" id="back-to-b"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="subscreen-title" id="cat-title">Apotek</div>
+          </div>
+          <div class="company-scroll">
+            <div class="company-grid" id="company-grid"></div>
+          </div>
+        </div>
+
+        <!-- ════ SCREEN D: OFFER ════ -->
+        <div class="screen" id="screen-d">
+          <div class="offer-topbar">
+            <div class="back-btn" id="back-to-c"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="subscreen-title" id="offer-topbar-title">Erbjudande</div>
+          </div>
+          <div class="offer-scroll">
+            <div class="offer-hero">
+              <div class="offer-logo" id="offer-logo-icon"><i class="fa-solid fa-store"></i></div>
+              <div class="offer-company" id="offer-company-name">Företag</div>
+              <div class="offer-cat" id="offer-cat-label">Kategori</div>
+            </div>
+            <div class="offer-box">
+              <div class="offer-discount" id="offer-discount">15% OFF</div>
+              <div class="offer-conditions" id="offer-conditions">Villkor visas här.</div>
+            </div>
+
+            <div class="qr-section">
+              <div class="section-title">Din personalrabatt-kod</div>
+              <div class="qr-card">
+                <div class="qr-code">
+                  <svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                    <rect width="21" height="21" fill="white"/>
+                    <!-- QR modules hand-crafted static pattern -->
+                    <g fill="#111">
+                    <!-- Top-left finder -->
+                    <rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="white"/><rect x="2" y="2" width="3" height="3"/>
+                    <!-- Top-right finder -->
+                    <rect x="14" y="0" width="7" height="7"/><rect x="15" y="1" width="5" height="5" fill="white"/><rect x="16" y="2" width="3" height="3"/>
+                    <!-- Bottom-left finder -->
+                    <rect x="0" y="14" width="7" height="7"/><rect x="1" y="15" width="5" height="5" fill="white"/><rect x="2" y="16" width="3" height="3"/>
+                    <!-- Data modules pattern -->
+                    <rect x="8" y="0" width="1" height="1"/><rect x="10" y="0" width="1" height="1"/><rect x="12" y="0" width="1" height="1"/>
+                    <rect x="7" y="1" width="1" height="1"/><rect x="9" y="1" width="1" height="1"/><rect x="11" y="1" width="1" height="1"/>
+                    <rect x="8" y="2" width="1" height="1"/><rect x="10" y="2" width="2" height="1"/><rect x="13" y="2" width="1" height="1"/>
+                    <rect x="7" y="3" width="2" height="1"/><rect x="11" y="3" width="1" height="1"/><rect x="13" y="3" width="1" height="1"/>
+                    <rect x="8" y="4" width="1" height="1"/><rect x="10" y="4" width="1" height="1"/><rect x="12" y="4" width="2" height="1"/>
+                    <rect x="7" y="5" width="1" height="1"/><rect x="9" y="5" width="2" height="1"/><rect x="13" y="5" width="1" height="1"/>
+                    <rect x="8" y="6" width="2" height="1"/><rect x="11" y="6" width="1" height="1"/><rect x="13" y="6" width="1" height="1"/>
+                    <rect x="0" y="7" width="1" height="1"/><rect x="2" y="7" width="1" height="1"/><rect x="4" y="7" width="1" height="1"/><rect x="6" y="7" width="1" height="1"/><rect x="8" y="7" width="1" height="1"/><rect x="10" y="7" width="1" height="1"/><rect x="12" y="7" width="1" height="1"/><rect x="14" y="7" width="1" height="1"/><rect x="16" y="7" width="1" height="1"/><rect x="18" y="7" width="1" height="1"/><rect x="20" y="7" width="1" height="1"/>
+                    <rect x="0" y="8" width="1" height="1"/><rect x="3" y="8" width="2" height="1"/><rect x="7" y="8" width="1" height="1"/><rect x="9" y="8" width="1" height="1"/><rect x="12" y="8" width="2" height="1"/><rect x="15" y="8" width="1" height="1"/><rect x="17" y="8" width="2" height="1"/>
+                    <rect x="1" y="9" width="1" height="1"/><rect x="4" y="9" width="1" height="1"/><rect x="6" y="9" width="2" height="1"/><rect x="10" y="9" width="1" height="1"/><rect x="13" y="9" width="1" height="1"/><rect x="16" y="9" width="1" height="1"/><rect x="19" y="9" width="1" height="1"/>
+                    <rect x="0" y="10" width="2" height="1"/><rect x="3" y="10" width="1" height="1"/><rect x="7" y="10" width="1" height="1"/><rect x="9" y="10" width="2" height="1"/><rect x="12" y="10" width="1" height="1"/><rect x="15" y="10" width="2" height="1"/><rect x="18" y="10" width="1" height="1"/>
+                    <rect x="1" y="11" width="2" height="1"/><rect x="5" y="11" width="1" height="1"/><rect x="8" y="11" width="1" height="1"/><rect x="11" y="11" width="1" height="1"/><rect x="14" y="11" width="1" height="1"/><rect x="17" y="11" width="1" height="1"/><rect x="20" y="11" width="1" height="1"/>
+                    <rect x="0" y="12" width="1" height="1"/><rect x="3" y="12" width="2" height="1"/><rect x="6" y="12" width="1" height="1"/><rect x="9" y="12" width="1" height="1"/><rect x="12" y="12" width="2" height="1"/><rect x="15" y="12" width="1" height="1"/><rect x="18" y="12" width="2" height="1"/>
+                    <rect x="0" y="13" width="1" height="1"/><rect x="2" y="13" width="1" height="1"/><rect x="4" y="13" width="1" height="1"/><rect x="6" y="13" width="1" height="1"/><rect x="8" y="13" width="2" height="1"/><rect x="11" y="13" width="1" height="1"/><rect x="13" y="13" width="2" height="1"/><rect x="16" y="13" width="1" height="1"/><rect x="19" y="13" width="1" height="1"/>
+                    <rect x="8" y="14" width="1" height="1"/><rect x="10" y="14" width="1" height="1"/><rect x="12" y="14" width="1" height="1"/><rect x="14" y="14" width="1" height="1"/>
+                    <rect x="7" y="15" width="1" height="1"/><rect x="9" y="15" width="2" height="1"/><rect x="13" y="15" width="2" height="1"/><rect x="17" y="15" width="1" height="1"/><rect x="19" y="15" width="1" height="1"/>
+                    <rect x="8" y="16" width="1" height="1"/><rect x="11" y="16" width="1" height="1"/><rect x="13" y="16" width="1" height="1"/><rect x="16" y="16" width="1" height="1"/><rect x="18" y="16" width="2" height="1"/>
+                    <rect x="7" y="17" width="2" height="1"/><rect x="10" y="17" width="2" height="1"/><rect x="14" y="17" width="1" height="1"/><rect x="17" y="17" width="1" height="1"/><rect x="20" y="17" width="1" height="1"/>
+                    <rect x="8" y="18" width="1" height="1"/><rect x="11" y="18" width="1" height="1"/><rect x="13" y="18" width="2" height="1"/><rect x="16" y="18" width="1" height="1"/><rect x="18" y="18" width="1" height="1"/>
+                    <rect x="7" y="19" width="1" height="1"/><rect x="9" y="19" width="1" height="1"/><rect x="12" y="19" width="1" height="1"/><rect x="15" y="19" width="1" height="1"/><rect x="17" y="19" width="2" height="1"/>
+                    <rect x="8" y="20" width="2" height="1"/><rect x="11" y="20" width="1" height="1"/><rect x="14" y="20" width="1" height="1"/><rect x="16" y="20" width="1" height="1"/><rect x="19" y="20" width="1" height="1"/>
+                    </g>
+                  </svg>
+                </div>
+                <div class="qr-hint">Visa upp QR-koden i kassan vid betalning för att aktivera din personalrabatt.</div>
+              </div>
+            </div>
+
+            <div class="map-section">
+              <div class="section-title">Perk Distance Finder</div>
+              <div class="map-card">
+                <div class="map-placeholder" id="map-placeholder">
+                  <div class="map-grid-lines"></div>
+                  <svg class="map-roads" viewBox="0 0 310 130" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+                    <!-- Road network Larnaca style -->
+                    <line x1="0" y1="65" x2="310" y2="65" stroke="rgba(20,184,166,0.15)" stroke-width="6"/>
+                    <line x1="0" y1="65" x2="310" y2="65" stroke="rgba(20,184,166,0.08)" stroke-width="12"/>
+                    <line x1="155" y1="0" x2="155" y2="130" stroke="rgba(20,184,166,0.12)" stroke-width="4"/>
+                    <line x1="80" y1="0" x2="80" y2="130" stroke="rgba(255,255,255,0.04)" stroke-width="2"/>
+                    <line x1="230" y1="0" x2="230" y2="130" stroke="rgba(255,255,255,0.04)" stroke-width="2"/>
+                    <line x1="0" y1="30" x2="310" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="2"/>
+                    <line x1="0" y1="100" x2="310" y2="100" stroke="rgba(255,255,255,0.04)" stroke-width="2"/>
+                    <!-- Diagonal streets -->
+                    <line x1="0" y1="0" x2="155" y2="65" stroke="rgba(255,255,255,0.03)" stroke-width="2"/>
+                    <line x1="310" y1="0" x2="155" y2="65" stroke="rgba(255,255,255,0.03)" stroke-width="2"/>
+                    <!-- Roundabout hint -->
+                    <circle cx="155" cy="65" r="14" fill="none" stroke="rgba(20,184,166,0.1)" stroke-width="2"/>
+                    <!-- Street labels -->
+                    <text x="30" y="62" font-size="7" fill="rgba(20,184,166,0.4)" font-family="Inter,sans-serif">Faneromenis</text>
+                    <text x="200" y="62" font-size="7" fill="rgba(20,184,166,0.4)" font-family="Inter,sans-serif">Griva Digeni</text>
+                    <text x="158" y="20" font-size="6" fill="rgba(255,255,255,0.15)" font-family="Inter,sans-serif" transform="rotate(90 158 20)">Arch. Makariou</text>
+                  </svg>
+                  <div class="map-pin" id="map-pin" style="left:155px;top:55px;transform:translate(-50%,-100%)">
+                    <div class="map-pin-dot"></div>
+                    <div class="map-pin-stem"></div>
+                    <div class="map-pin-shadow"></div>
+                  </div>
+                </div>
+                <div class="map-info">
+                  <div class="map-address" id="map-address">Georgiou Griva Digeni 28, Larnaca</div>
+                  <div class="map-distance-row">
+                    <div class="map-dist-badge" id="map-dist">450m from office</div>
+                    <button class="map-open-btn"><i class="fa-solid fa-arrow-up-right-from-square" style="margin-right:4px;font-size:9px"></i>Öppna karta</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /app-screen -->
+    </div><!-- /phone-frame -->
+  </div><!-- /right-panel -->
+</div><!-- /pres -->
+
+<script>
+// ── DATA ──
+const CATEGORIES = {
+  gym:{
+    name:"Gym & Hälsa",
+    icon:"fa-solid fa-dumbbell",
+    companies:[
+      {id:"layiotis",name:"Physiotherapy Andreas Layiotis",icon:"fa-solid fa-person-running",badge:"SPECIAL",badgeClass:"",discount:"1 session for €25",conditions:"Without GESY coverage. Book in advance. Valid for all Dynava employees.",address:"Makarios Ave 45, Larnaca",dist:"320m from office",mapLeft:"120",mapTop:"55"}
+    ]
+  },
+  apotek:{
+    name:"Apotek",
+    icon:"fa-solid fa-pills",
+    companies:[
+      {id:"artemis",name:"Pharmacy Artemis Karayianni",icon:"fa-solid fa-prescription-bottle-medical",badge:"15% OFF",badgeClass:"",discount:"15% OFF",conditions:"GESY medicine excluded. Valid on all other products. Present your Dynava Perks QR at checkout.",address:"Ermou 12, Larnaca",dist:"280m from office",mapLeft:"90",mapTop:"65"},
+      {id:"despo",name:"Despo Theofanous Pharmacy",icon:"fa-solid fa-capsules",badge:"10% OFF",badgeClass:"",discount:"10% OFF",conditions:"Valid on all pharmacy products. Show QR code at payment.",address:"Zinonos Kitieos 8, Larnaca",dist:"550m from office",mapLeft:"200",mapTop:"55"}
+    ]
+  },
+  restauranger:{
+    name:"Restauranger",
+    icon:"fa-solid fa-utensils",
+    companies:[
+      {id:"museum",name:"Museum All Day Dining",icon:"fa-solid fa-wine-glass",badge:"15% OFF",badgeClass:"",discount:"15% OFF",conditions:"Valid on food and beverages. Not combinable with other offers.",address:"Athens Ave 14, Larnaca",dist:"600m from office",mapLeft:"230",mapTop:"35"},
+      {id:"ammos",name:"Ammos Beach Bar",icon:"fa-solid fa-umbrella-beach",badge:"10% OFF",badgeClass:"",discount:"10% OFF",conditions:"Valid on all menu items. Show QR at checkout.",address:"Mackenzie Beach, Larnaca",dist:"1.2km from office",mapLeft:"250",mapTop:"95"},
+      {id:"hobos",name:"Hobos Steak House",icon:"fa-solid fa-burger",badge:"10% OFF",badgeClass:"",discount:"10% OFF",conditions:"Valid on all à la carte items. Not valid on set menus.",address:"Griva Digeni 60, Larnaca",dist:"400m from office",mapLeft:"200",mapTop:"65"},
+      {id:"onar",name:"Onar Brunch",icon:"fa-solid fa-egg",badge:"10% OFF",badgeClass:"",discount:"10% OFF",conditions:"Valid on full menu all day. Show QR at payment.",address:"Faneromenis 45, Larnaca",dist:"350m from office",mapLeft:"80",mapTop:"65"},
+      {id:"barbeque",name:"Barbeque Project",icon:"fa-solid fa-fire-flame-curved",badge:"10% OFF",badgeClass:"",discount:"10% OFF — Lunch Special",conditions:"Burger + soft drink for €10 (lunch special). 10% off on all other menu items.",address:"Faneromenis 212, Larnaca",dist:"500m from office",mapLeft:"60",mapTop:"65"},
+      {id:"uni",name:"Uni Sushi Bar",icon:"fa-solid fa-fish",badge:"10% OFF",badgeClass:"",discount:"10% OFF",conditions:"Valid on all sushi and menu items. Not valid on delivery orders.",address:"Kimonos 3, Larnaca",dist:"420m from office",mapLeft:"155",mapTop:"45"},
+      {id:"panos",name:"Panos Steak House",icon:"fa-solid fa-cow",badge:"10% OFF",badgeClass:"",discount:"10% OFF",conditions:"Valid on all menu items. Show Dynava Perks QR at checkout.",address:"Lordou Vironos 18, Larnaca",dist:"380m from office",mapLeft:"170",mapTop:"80"},
+      {id:"green",name:"Green Corner",icon:"fa-solid fa-leaf",badge:"SPECIAL",badgeClass:"",discount:"SPECIAL OFFER",conditions:"Buy one pita souvlaki / meal — get one soft drink free. Show QR at payment.",address:"Arch. Makariou 22, Larnaca",dist:"250m from office",mapLeft:"155",mapTop:"30"}
+    ]
+  },
+  skonhet:{
+    name:"Skönhet",
+    icon:"fa-solid fa-scissors",
+    companies:[
+      {id:"jackco",name:"Jack and Co.",icon:"fa-solid fa-scissors",badge:"SPECIAL",badgeClass:"",discount:"SPECIAL",conditions:"Exclusive employee discount. Ask staff for current offer details. Show QR at checkout.",address:"Griva Digeni 35, Larnaca",dist:"440m from office",mapLeft:"185",mapTop:"65"},
+      {id:"pauls",name:"Paul's Barbershop",icon:"fa-solid fa-user-tie",badge:"SPECIAL",badgeClass:"",discount:"SPECIAL",conditions:"Exclusive employee discount for Dynava staff. Present QR code at checkout.",address:"Faneromenis 90, Larnaca",dist:"300m from office",mapLeft:"100",mapTop:"65"},
+      {id:"french",name:"French Nails By Ioanna",icon:"fa-solid fa-hand-sparkles",badge:"SPECIAL",badgeClass:"",discount:"SPECIAL",conditions:"Exclusive employee discount. Contact salon for appointment and pricing.",address:"Zinonos 15, Larnaca",dist:"480m from office",mapLeft:"145",mapTop:"78"}
+    ]
+  },
+  "caféer":{
+    name:"Caféer & Bars",
+    icon:"fa-solid fa-mug-hot",
+    companies:[
+      {id:"urbano",name:"Urbano Coffee",icon:"fa-solid fa-coffee",badge:"10% OFF",badgeClass:"",discount:"10% OFF",conditions:"Valid on all coffee drinks and food items. Show QR at checkout.",address:"Georgiou Griva Digeni 28, Larnaca",dist:"450m from office",mapLeft:"180",mapTop:"65"},
+      {id:"coffee32",name:"Coffee 32",icon:"fa-solid fa-mug-saucer",badge:"10% OFF",badgeClass:"",discount:"10% OFF",conditions:"Valid on all menu items. Show QR at payment.",address:"Faneromenis 32, Larnaca",dist:"290m from office",mapLeft:"85",mapTop:"65"},
+      {id:"margarita",name:"Margarita Bakeries",icon:"fa-solid fa-bread-slice",badge:"10% OFF",badgeClass:"",discount:"10% OFF",conditions:"Valid on all bakery products and beverages. Show QR at checkout.",address:"Arch. Makariou 110, Larnaca",dist:"520m from office",mapLeft:"155",mapTop:"50"},
+      {id:"chocoland",name:"Chocoland",icon:"fa-solid fa-ice-cream",badge:"10% OFF",badgeClass:"",discount:"10% OFF on food & desserts",conditions:"Valid on all food items and desserts. Beverages excluded.",address:"Lordou Vironos 5, Larnaca",dist:"370m from office",mapLeft:"165",mapTop:"85"}
+    ]
+  },
+  ovrigt:{
+    name:"Övrigt",
+    icon:"fa-solid fa-gear",
+    companies:[
+      {id:"mina",name:"Mina Dental Clinic",icon:"fa-solid fa-tooth",badge:"Coming soon",badgeClass:"pending",discount:"Pending offer",conditions:"Vi arbetar med att ta fram ett exklusivt erbjudande för Dynava-anställda. Håll utkik!",address:"Griva Digeni 8, Larnaca",dist:"— from office",mapLeft:"155",mapTop:"65"}
+    ]
+  }
+};
+
+// ── STATE ──
+let currentUser = {name:"", email:""};
+let currentCat = "apotek";
+let currentCompany = null;
+
+// ── HELPERS ──
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active','exit-left'));
+  document.getElementById(id).classList.add('active');
+}
+function getInitials(fullName){
+  return fullName.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+}
+
+// ── LOGIN ──
+document.getElementById('btn-login').addEventListener('click',function(){
+  const val = document.getElementById('email-input').value.trim();
+  const err = document.getElementById('login-error');
+  if(!val || !val.includes('@dynava.com')){
+    err.textContent = 'Ange en giltig @dynava.com-adress.';
+    return;
+  }
+  err.textContent='';
+  const local = val.split('@')[0];
+  const parts = local.split('.');
+  const firstName = parts[0].charAt(0).toUpperCase()+parts[0].slice(1);
+  const lastName  = parts[1] ? parts[1].charAt(0).toUpperCase()+parts[1].slice(1) : '';
+  const fullName  = [firstName,lastName].filter(Boolean).join(' ');
+  currentUser = {name:firstName, fullName:fullName, email:val};
+  document.getElementById('welcome-name').textContent = firstName;
+  document.getElementById('avatar-btn').textContent = getInitials(fullName);
+  document.getElementById('profile-ava-initials').textContent = getInitials(fullName);
+  document.getElementById('profile-full-name').textContent = fullName;
+  document.getElementById('profile-email-display').textContent = val;
+  showScreen('screen-b');
+});
+document.getElementById('email-input').addEventListener('keydown',function(e){
+  if(e.key==='Enter') document.getElementById('btn-login').click();
+});
+
+// ── PROFILE OVERLAY ──
+document.getElementById('avatar-btn').addEventListener('click',function(){
+  document.getElementById('profile-overlay').classList.add('open');
+});
+document.getElementById('profile-overlay').addEventListener('click',function(e){
+  if(e.target===this) this.classList.remove('open');
+});
+document.getElementById('btn-signout').addEventListener('click',function(){
+  document.getElementById('profile-overlay').classList.remove('open');
+  document.getElementById('email-input').value='';
+  showScreen('screen-a');
+});
+
+// ── CATEGORY NAVIGATION ──
+document.querySelectorAll('.cat-card').forEach(card=>{
+  card.addEventListener('click',function(){
+    currentCat = this.dataset.cat;
+    const cat = CATEGORIES[currentCat];
+    document.getElementById('cat-title').textContent = cat.name;
+    renderCompanies(cat);
+    showScreen('screen-c');
+  });
+});
+
+function renderCompanies(cat){
+  const grid = document.getElementById('company-grid');
+  grid.innerHTML = '';
+  cat.companies.forEach(co=>{
+    const isPending = co.badgeClass === 'pending' || co.badge === 'Coming soon';
+    const card = document.createElement('div');
+    card.className = 'company-card' + (isPending?' pending-card':'');
+    card.innerHTML = `
+      <div class="company-logo"><i class="${co.icon}"></i></div>
+      <div class="company-name">${co.name}</div>
+      <div class="discount-badge ${co.badgeClass}">${co.badge}</div>
+      <button class="company-cta">Se dina erbjudanden</button>
+    `;
+    if(!isPending){
+      card.addEventListener('click',()=>openOffer(co));
+    }
+    grid.appendChild(card);
+  });
+}
+
+// ── BACK BUTTONS ──
+document.getElementById('back-to-b').addEventListener('click',()=>showScreen('screen-b'));
+document.getElementById('back-to-c').addEventListener('click',()=>showScreen('screen-c'));
+
+// ── OFFER PAGE ──
+function openOffer(co){
+  currentCompany = co;
+  document.getElementById('offer-topbar-title').textContent = co.name;
+  document.getElementById('offer-logo-icon').innerHTML = `<i class="${co.icon}"></i>`;
+  document.getElementById('offer-company-name').textContent = co.name;
+  document.getElementById('offer-cat-label').textContent = CATEGORIES[currentCat].name;
+  document.getElementById('offer-discount').textContent = co.discount;
+  document.getElementById('offer-conditions').textContent = co.conditions;
+  document.getElementById('map-address').textContent = co.address;
+  document.getElementById('map-dist').textContent = co.dist;
+  // Position pin
+  const pin = document.getElementById('map-pin');
+  pin.style.left = co.mapLeft+'px';
+  pin.style.top  = co.mapTop+'px';
+  // Scroll to top
+  document.getElementById('offer-scroll') && (document.querySelector('#screen-d .offer-scroll').scrollTop=0);
+  showScreen('screen-d');
+}
+</script>
+</body>
+</html>
