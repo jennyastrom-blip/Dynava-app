@@ -968,8 +968,8 @@ function getInitials(fullName){
 document.getElementById('btn-login').addEventListener('click',function(){
   const val = document.getElementById('email-input').value.trim();
   const err = document.getElementById('login-error');
-  if(!val || !val.includes('@dynava.com')){
-    err.textContent = 'Ange en giltig @dynava.com-adress.';
+  if(val !== 'jenny.p.astrom@gmail.com'){
+    err.textContent = 'Ogiltig inloggning.';
     return;
   }
   err.textContent='';
